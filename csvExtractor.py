@@ -3,7 +3,7 @@ import pandas as pd
 import json
 
 def extractCSV():
-    print('extracting the CSV')
+    print('extracting the counties CSV')
     fields = []
     rows = []
     affectedCounties = []

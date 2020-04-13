@@ -1,4 +1,6 @@
 out.mbtiles
 counties-with-cases.json
 countyData.json
+states-with-cases.json
+stateData.json
 .vscode/
