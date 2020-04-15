@@ -1,6 +1,7 @@
 import csv
 import pandas as pd
 import json
+from tqdm import tqdm
 
 def extractCSV():
     print('extracting the counties CSV')
@@ -40,8 +41,8 @@ def mergeData(affectedCountiesJ):
     counties = {}
     with open('counties.json', 'r') as file:
         counties = json.load(file)
-        print(len(counties['features']))
-    for i in range(len(counties['features'])):
+        #print(len(counties['features']))
+    for i in tqdm(range(len(counties['features']))):
         try:
             fipsCode = counties['features'][i]['properties']['STATE'] + counties['features'][i]['properties']['COUNTY']
             counties['features'][i]['properties']['cases'] = int(affectedCountiesJ[fipsCode]['cases'])
