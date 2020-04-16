@@ -65,6 +65,7 @@ def convertToJson(affectedCountyData):
     return affectedCountiesJ
 
 def mergeData(affectedCountiesJ):
+    popData = extractCSVpop()
     print('merging da data')
     counties = {}
     with open('counties.json', 'r') as file:
@@ -75,10 +76,12 @@ def mergeData(affectedCountiesJ):
             fipsCode = counties['features'][i]['properties']['STATE'] + counties['features'][i]['properties']['COUNTY']
             counties['features'][i]['properties']['cases'] = int(affectedCountiesJ[fipsCode]['cases'])
             counties['features'][i]['properties']['deaths'] = int(affectedCountiesJ[fipsCode]['deaths'])
+            counties['features'][i]['properties']['POPESTIMATE2019'] = int(affectedCountiesJ[fipsCode]['POPESTIMATE2019'])
             #print(counties['features'][i]['properties'])
         except Exception:
             counties['features'][i]['properties']['cases']=0
             counties['features'][i]['properties']['deaths']=0
+            counties['features'][i]['properties']['POPESTIMATE2019'] = 1
             #print(str(counties['features'][i]['properties']) + "zeroed")
     return counties
 
