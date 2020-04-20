@@ -1,4 +1,6 @@
 out.mbtiles
+popMerge.py
+counties-with-pops.json
 countyData.json
 states-with-cases.json
 stateData.json
