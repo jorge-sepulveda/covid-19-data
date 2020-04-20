@@ -89,7 +89,7 @@ def saveFiles(newCountyData, affectedCounties):
         json.dump(affectedCounties, f, indent=2)
 
     with open('counties-with-cases.json', 'w') as f:
-        json.dump(newCountyData, f, indent=2)
+        json.dump(newCountyData, f, separators=(',', ':'))
 
 countyArrays = extractCSV()
 affectedCountyJson = convertToJson(countyArrays)
